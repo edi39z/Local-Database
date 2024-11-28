@@ -49,7 +49,7 @@ class HomeworkActivity : AppCompatActivity() {
         binding = ActivityHomeworkBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Homework"
+        supportActionBar?.title = "tugasrumah"
 
 
         binding.rvHomework.layoutManager = LinearLayoutManager(this)

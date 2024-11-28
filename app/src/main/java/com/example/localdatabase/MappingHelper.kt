@@ -13,7 +13,7 @@ object MappingHelper {
                 val title = getString(getColumnIndexOrThrow(DatabaseContract.HomeworkColumns.TITLE))
                 val description = getString(getColumnIndexOrThrow(DatabaseContract.HomeworkColumns.DESCRIPTION))
                 val date = getString(getColumnIndexOrThrow(DatabaseContract.HomeworkColumns.DATE))
-                homeworkList.add(Homework(id, title, description, date))
+                homeworkList.add(Homework(id, title, description,date))
             }
 
         }

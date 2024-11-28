@@ -9,11 +9,17 @@ import com.example.localdatabase.databinding.ItemHomeworkBinding
 class HomeworkAdapter(private val onItemClickCallback: OnItemClickCallback) :
     RecyclerView.Adapter<HomeworkAdapter.HomeworkViewHolder>() {
 
-    private val listHomework = ArrayList<Homework>()
+
+    var listHomework = ArrayList<Homework>()
+
 
     interface OnItemClickCallback {
         fun onItemClicked(selectedHomework: Homework, position: Int)
     }
+
+
+    fun getListHomework(): List<Homework> = listHomework
+
 
     fun setItems(items: List<Homework>) {
         listHomework.clear()
@@ -21,10 +27,12 @@ class HomeworkAdapter(private val onItemClickCallback: OnItemClickCallback) :
         notifyDataSetChanged()
     }
 
+
     fun addItem(homework: Homework) {
         listHomework.add(homework)
         notifyItemInserted(listHomework.size - 1)
     }
+
 
     fun updateItem(position: Int, homework: Homework) {
         if (position in listHomework.indices) {
@@ -32,6 +40,7 @@ class HomeworkAdapter(private val onItemClickCallback: OnItemClickCallback) :
             notifyItemChanged(position)
         }
     }
+
 
     fun removeItem(position: Int) {
         if (position in listHomework.indices) {
@@ -41,17 +50,21 @@ class HomeworkAdapter(private val onItemClickCallback: OnItemClickCallback) :
         }
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeworkViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_homework, parent, false)
         return HomeworkViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: HomeworkViewHolder, position: Int) {
         holder.bind(listHomework[position], position)
     }
 
+
     override fun getItemCount(): Int = listHomework.size
+
 
     inner class HomeworkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemHomeworkBinding.bind(itemView)

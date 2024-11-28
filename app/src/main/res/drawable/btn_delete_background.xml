@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Saat tombol ditekan, latar belakang menjadi merah -->
+    <item android:drawable="@android:color/holo_red_light" android:state_pressed="true" />
+    <!-- Saat tombol dalam keadaan normal, latar belakang transparan -->
+    <item android:drawable="@android:color/transparent" />
+</selector>

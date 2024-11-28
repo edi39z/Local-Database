@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".HomeworkActivity">
 
-    <!-- RecyclerView untuk menampilkan daftar pekerjaan rumah -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_homework"
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/item_homework" />
 
-    <!-- FloatingActionButton untuk menambahkan pekerjaan rumah baru -->
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
         android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_margin="16dp"
         android:contentDescription="@string/add_homework"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/add"  />
+        app:layout_constraintEnd_toEndOf="parent "
+        app:srcCompat = "@drawable/add"  />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

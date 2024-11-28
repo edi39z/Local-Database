@@ -51,7 +51,7 @@ class HomeworkActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Homework"
 
-        // Setup RecyclerView
+
         binding.rvHomework.layoutManager = LinearLayoutManager(this)
         binding.rvHomework.setHasFixedSize(true)
 
@@ -65,7 +65,7 @@ class HomeworkActivity : AppCompatActivity() {
         })
         binding.rvHomework.adapter = adapter
 
-        // Floating Action Button
+
         binding.fabAdd.setOnClickListener {
             val intent = Intent(this, AddHomeworkActivity::class.java)
             resultLauncher.launch(intent)
@@ -86,13 +86,13 @@ class HomeworkActivity : AppCompatActivity() {
             val homeworkHelper = HomeworkHelper.getInstance(applicationContext)
             homeworkHelper.open()
 
-            // Menggunakan Coroutine untuk menjalankan query database di latar belakang
+
             val deferredHomework = async(Dispatchers.IO) {
                 val cursor = homeworkHelper.queryAll()
-                MappingHelper.mapCursorToArrayList(cursor) // Memetakan data dari cursor ke ArrayList
+                MappingHelper.mapCursorToArrayList(cursor)
             }
 
-            val homework = deferredHomework.await() // Menunggu hasil query selesai
+            val homework = deferredHomework.await()
             if (homework.size > 0) {
                 adapter.listHomework = homework
             } else {
@@ -100,22 +100,20 @@ class HomeworkActivity : AppCompatActivity() {
                 showSnackbarMessage("Data tidak ada")
             }
 
-            homeworkHelper.close() // Tutup koneksi ke database
+            homeworkHelper.close()
         }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        // Menyimpan daftar data ke dalam Bundle untuk memulihkan data setelah orientasi berubah
         outState.putParcelableArrayList(EXTRA_STATE, adapter.listHomework)
     }
 
     private fun showSnackbarMessage(message: String) {
-        // Menampilkan Snackbar dengan pesan
         Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
     }
 
     companion object {
-        private const val EXTRA_STATE = "EXTRA_STATE" // Konstanta untuk menyimpan state
+        private const val EXTRA_STATE = "EXTRA_STATE"
     }
 }

@@ -13,8 +13,11 @@
         android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/delete"
-        android:contentDescription="TODO" />
+        app:srcCompat="@drawable/deletes"
+        android:contentDescription="TODO"
+        android:background="@drawable/btn_delete_background" /> <!-- Menggunakan selector sebagai background -->
+
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout1"
@@ -59,10 +62,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btn_Submit"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        android:text="@string/btn_Submit" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

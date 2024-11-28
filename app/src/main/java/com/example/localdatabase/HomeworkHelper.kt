@@ -50,14 +50,14 @@ class HomeworkHelper(context: Context) {
     }
 
     fun insert(values: ContentValues?): Long {
-        return database.insert(TABLE_NAME, null, values)
+        return database.insert(TABLE_NAME,  null, values)
     }
 
     fun update(id: String, values: ContentValues?): Int {
-        return database.update(TABLE_NAME, values, "$_ID = ?", arrayOf(id))
+        return database.update(TABLE_NAME, values,  "$_ID = ?", arrayOf(id))
     }
 
     fun deleteById(id: String): Int {
-        return database.delete(TABLE_NAME, "$_ID = ?", arrayOf(id))
+        return database.delete(TABLE_NAME,  "$_ID = ?", arrayOf(id))
     }
 }

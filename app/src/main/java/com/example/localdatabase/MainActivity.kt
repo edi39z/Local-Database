@@ -97,7 +97,7 @@ class HomeworkActivity : AppCompatActivity() {
                 adapter.listHomework = homework
             } else {
                 adapter.listHomework = ArrayList()
-                showSnackbarMessage("Data tidak ada")
+                showSnackbarMessage("Data tidak ditemukan")
             }
 
             homeworkHelper.close()
